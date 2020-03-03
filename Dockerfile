@@ -5,8 +5,9 @@ ARG BERT_GIT_REPO=https://github.com/google-research/bert.git
 
 MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
 
-# Install essential components for installing SAP HANA
-RUN apt-get install git -y \
+# Install essential components for installing BERT
+RUN apt-get update -y \
+  && apt-get install git -y \
   && copy download_glue_data.py . \
   && python download_glue_data.py \
   && git clone BERT_GIT_REPO \
