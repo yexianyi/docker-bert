@@ -14,8 +14,8 @@ RUN apt-get update -y \
   && apt-get install git -y \
   && git clone ${BERT_GIT_REPO} \
   && wget ${MODEL_URL} \
-  && apt-get purge wget \
-  && apt-get autoremove wget\
-  && apt-get purge git \
-  && apt-get autoremove git\
+  && apt-get purge wget -y \
+  && apt-get autoremove wget -y \
+  && apt-get purge git -y \
+  && apt-get autoremove git -y \
   && apt-get clean
