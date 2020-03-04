@@ -13,4 +13,9 @@ RUN apt-get update -y \
   # && python download_glue_data.py \
   && apt-get install git -y \
   && git clone ${BERT_GIT_REPO} \
-  && wget ${MODEL_URL}
+  && wget ${MODEL_URL} \
+  && apt-get --purge wget \
+  && apt-get autoremove wget\
+  && apt-get --purge git \
+  && apt-get autoremove git\
+  && apt-get clean
