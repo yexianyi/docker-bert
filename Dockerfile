@@ -8,8 +8,8 @@ MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
 
 # Install essential components for installing BERT
 RUN apt-get update -y \
-  && ADD https://raw.githubusercontent.com/yexianyi/docker-bert/master/download_glue_data.py \
+  && curl -SL https://raw.githubusercontent.com/yexianyi/docker-bert/master/download_glue_data.py \
   && python download_glue_data.py \
   && apt-get install git -y \
   && git clone ${BERT_GIT_REPO} \
-  && ADD ${MODEL_URL}
+  && curl -SL ${MODEL_URL} .
