@@ -2,6 +2,7 @@
 FROM tensorflow/tensorflow:1.14.0-py3-jupyter
 
 ARG BERT_GIT_REPO=https://github.com/google-research/bert.git
+ARG MODEL_URL=https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
 
 MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
 
@@ -11,5 +12,5 @@ RUN apt-get update -y \
   && wget https://raw.githubusercontent.com/yexianyi/docker-bert/master/download_glue_data.py \
   && python download_glue_data.py \
   && apt-get install git -y \
-  && git clone BERT_GIT_REPO \
-  && ADD https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
+  && git clone ${BERT_GIT_REPO} \
+  && ADD ${MODEL_URL}
